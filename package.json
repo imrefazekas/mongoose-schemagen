@@ -1,0 +1,46 @@
+{
+  "name": "mongoose-schemagen",
+  "version": "0.1.0",
+  "description": "Exceptionally featureful RESTful web services middleware for Connect.",
+  "keywords": [
+    "mongoose",
+    "mongodb",
+    "schema",
+    "generator"
+  ],
+  "homepage": "https://github.com/imrefazekas/mongoose-schemagen",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/imrefazekas/mongoose-schemagen.git"
+  },
+  "bugs": {
+    "url": "http://github.com/imrefazekas/mongoose-schemagen/issues"
+  },
+  "author": {
+    "name": "Imre Fazekas",
+    "email": "imre.fazekas@gmail.com"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/MIT"
+    }
+  ],
+  "main": "./lib/mongoose-schemagen.js",
+  "dependencies": {
+    "mongoose": "~3",
+    "mongoose-function": "~0.1",
+    "underscore": "~1"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "~0.6",
+    "grunt-contrib-nodeunit": "~0.2",
+    "should": "~1.2",
+    "vindication.js": "~1.2"
+  },
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "_id": "mongoose-schemagen@0.1.0"
+}
