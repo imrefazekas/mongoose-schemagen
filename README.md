@@ -10,7 +10,7 @@ Having used this library, you will be free from the load of schema and model cre
 In the example, the rules are following the [Parsley](http://parsleyjs.org) library.
 [Vindication.js](https://github.com/imrefazekas/vindication.js) is a great library to interpret those rules on both client and server side.
 
-This project is extracted from a complex project schenario, where one business model is defined and maintained allowing you to use the same objects - including model and validation and computed values and associated functions - on both client side, server side and DB interaction!
+This project is extracted from a complex project boilerplate: [Division.js](https://github.com/imrefazekas/division.js), where one business model is defined and maintained allowing you to use the same objects - including model and validation and computed values and associated functions - on both client side, server side and DB interaction!
 
 License: [MIT](http://www.opensource.org/licenses/mit-license.php)
 
