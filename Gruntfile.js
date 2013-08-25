@@ -7,7 +7,7 @@ module.exports = function(grunt) {
 			all: [ 'lib/*.js', 'lib/**/*.js' ]
 		},
 		nodeunit: {
-			tests: ['test/testGenerate.js']
+			tests: ['test/testGenerate.js', 'test/testReadModels.js']
 		}
 	});
 
