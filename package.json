@@ -1,6 +1,6 @@
 {
   "name": "mongoose-schemagen",
-  "version": "0.3.13",
+  "version": "0.3.14",
   "description": "Exceptionally featureful RESTful web services middleware for Connect.",
   "keywords": [
     "mongoose",
@@ -34,7 +34,7 @@
   },
   "devDependencies": {
     "grunt": "~0.4",
-    "grunt-contrib-jshint": "~0.7",
+    "grunt-contrib-jshint": "~0.8",
     "grunt-contrib-nodeunit": "~0.2",
     "should": "~2",
     "vindication.js": "~1"
@@ -42,5 +42,5 @@
   "engines": {
     "node": ">= 0.10.0"
   },
-  "_id": "mongoose-schemagen@0.3.13"
+  "_id": "mongoose-schemagen@0.3.14"
 }
