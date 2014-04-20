@@ -1,6 +1,6 @@
 {
   "name": "mongoose-schemagen",
-  "version": "0.3.15",
+  "version": "0.4.0",
   "description": "Exceptionally featureful RESTful web services middleware for Connect.",
   "keywords": [
     "mongoose",
@@ -30,17 +30,18 @@
   "dependencies": {
     "mongoose": "~3",
     "mongoose-function": "~0.1",
-    "underscore": "~1"
+    "lodash": "latest"
   },
   "devDependencies": {
-    "grunt": "~0.4",
-    "grunt-contrib-jshint": "latest",
-    "grunt-contrib-nodeunit": "latest",
-    "should": "~2",
+    "chai": "latest",
+    "gulp": "latest",
+    "gulp-jshint": "latest",
+    "gulp-load-plugins": "latest",
+    "gulp-mocha": "latest",
     "vindication.js": "~1"
   },
   "engines": {
     "node": ">= 0.10.0"
   },
-  "_id": "mongoose-schemagen@0.3.15"
+  "_id": "mongoose-schemagen@0.4.0"
 }
