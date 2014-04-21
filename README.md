@@ -1,3 +1,5 @@
+[![NPM](https://nodei.co/npm/mongoose-schemagen.png)](https://nodei.co/npm/mongoose-schemagen/)
+
 [mongoose-schemagen](https://github.com/imrefazekas/mongoose-schemagen) is a very small utility library allowing to generate validable [mongoose](http://mongoosejs.com) schemas from pure JS objects.
 
 Features:
