@@ -28,7 +28,7 @@ describe("schemagen", function () {
 
 		mongoose.connect( uri, opts );
 
-		var db = mongoose.connection;
+		var db = global.db = mongoose.connection;
 
 		db.on('error', function (err) {
 			done( err );
@@ -40,10 +40,11 @@ describe("schemagen", function () {
 
 	describe("test integration", function () {
 		it('reading models', function(done){
-			var env = schemagen.readModels( {}, path.resolve( './test/models' ) );
+			var env = global.models = schemagen.readModels( {}, path.resolve( './test/models' ) );
 
 			env.should.have.property('users');
 			env.should.have.property('services');
+			env.should.have.property('complex');
 
 			done();
 		});
@@ -62,13 +63,39 @@ describe("schemagen", function () {
 					}
 				}
 			);
-			var model = obj.model;
+			var Model = obj.model;
 
-			var record = new model( prototype );
+			var record = new Model( prototype );
 
-			should.Throw( record.save, Error );
+			record.save( function(err, res){
+				should.exist(err);
+				done( );
+			} );
+		});
 
-			done( );
+		it('storing complex', function(done){
+			var obj = schemagen.generate(
+				global.models.complex.dataModel,
+				{ },
+				{ collection: 'Complex' },
+				{ name: 'Complex', timeStamped: true, creationFunt: function(record){ return record; } }
+			);
+			var Model = obj.model;
+
+			var record = new Model( {
+				body:{
+					data: 'D',
+					content: 'C'
+				},
+				additional:{
+					some: 'S',
+					text: 'T'
+				}
+			} );
+
+			record.save( function(err, res){
+				done( err );
+			} );
 		});
 	});
 
