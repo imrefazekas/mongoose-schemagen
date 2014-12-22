@@ -51,6 +51,7 @@ describe("schemagen", function () {
 
 		it('storing record', function(done){
 			var obj = schemagen.generate(
+				mongoose,
 				prototype,
 				{
 					firstName: { required: true, type: "number" },
@@ -75,6 +76,7 @@ describe("schemagen", function () {
 
 		it('storing complex', function(done){
 			var obj = schemagen.generate(
+				mongoose,
 				global.models.complex.dataModel,
 				{ },
 				{ collection: 'Complex' },
