@@ -36,7 +36,7 @@ var prototype = {
 // define some rules as validation constraints
 var rules = {
 	firstName: { required: true, type: "number" },
-	lastName: { notblank: true, type: "alphanum" }
+	lastName: { minlength: "1", type: "alphanum" }
 }
 
 // create schema and model. The returning object possesses the mongoose model and the schema as well.
@@ -44,7 +44,7 @@ var gen = schemagen.generate(
 	prototype,
 	{
 		firstName: { required: true, type: "number" },
-		lastName: { notblank: true, type: "alphanum" }
+		lastName: { minlength: "1", type: "alphanum" }
 	},
 	{ collection: 'Docs' },
 	{ name: 'Doc', validator: vindication.validate }

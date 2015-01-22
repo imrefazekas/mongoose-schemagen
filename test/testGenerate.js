@@ -55,7 +55,7 @@ describe("schemagen", function () {
 				prototype,
 				{
 					firstName: { required: true, type: "number" },
-					lastName: { notblank: true, type: "alphanum" }
+					lastName: { minlength: "1", type: "alphanum" }
 				},
 				{ collection: 'Docs' },
 				{
