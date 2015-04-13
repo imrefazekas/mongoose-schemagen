@@ -1,6 +1,6 @@
 {
   "name": "mongoose-schemagen",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "description": "Exceptionally featureful RESTful web services middleware for Connect.",
   "keywords": [
     "mongoose",
@@ -28,7 +28,8 @@
   ],
   "main": "./lib/mongoose-schemagen.js",
   "dependencies": {
-    "lodash": "~3"
+    "lodash": "~3",
+    "mongoose": "~4"
   },
   "devDependencies": {
     "chai": "latest",
@@ -41,5 +42,5 @@
   "engines": {
     "node": ">= 0.10.0"
   },
-  "_id": "mongoose-schemagen@0.5.2"
+  "_id": "mongoose-schemagen@0.6.0"
 }
