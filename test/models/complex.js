@@ -1,10 +1,10 @@
 exports.dataModel = {
-	body:{
+	body: {
 		data: '',
 		content: ''
 	},
-	additional:{
+	additional: {
 		some: '',
-		text: { type: String }
+		text: { _type: String }
 	}
 };

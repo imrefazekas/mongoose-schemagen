@@ -17,14 +17,14 @@ describe("schemagen", function () {
 
 	before(function(done){
 		var host = process.env.MONGODB_DEVELOPMENT_HOST || 'localhost';
-		var port = process.env.MONGODB_DEVELOPMENT_PORT || 27017;
+		var port = process.env.MONGODB_DEVELOPMENT_PORT || 27017;
 		var poolSize = 5;
 		var user = process.env.MONGODB_DEVELOPMENT_USER;
 		var pass = process.env.MONGODB_DEVELOPMENT_PASSWORD;
-		var dbName = process.env.MONGODB_DEVELOPMENT_DB || 'test';
+		var dbName = process.env.MONGODB_DEVELOPMENT_DB || 'test';
 
 		var uri = 'mongodb://' + (user ? user + ':' + pass + '@' : '' )  + host + ':' + port + '/' + dbName;
-		var opts = { server: { auto_reconnect: true, poolSize: poolSize }, db:{ safe:true, fsync:true }, user: user, pass: pass };
+		var opts = { server: { auto_reconnect: true, poolSize: poolSize }, db: { safe: true, fsync: true }, user: user, pass: pass };
 
 		mongoose.connect( uri, opts );
 
@@ -85,11 +85,11 @@ describe("schemagen", function () {
 			var Model = obj.model;
 
 			var record = new Model( {
-				body:{
+				body: {
 					data: 'D',
 					content: 'C'
 				},
-				additional:{
+				additional: {
 					some: 'S',
 					text: 'T'
 				}
