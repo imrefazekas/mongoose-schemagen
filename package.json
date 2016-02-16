@@ -1,6 +1,6 @@
 {
   "name": "mongoose-schemagen",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Exceptionally featureful RESTful web services middleware for Connect.",
   "keywords": [
     "mongoose",
@@ -31,7 +31,7 @@
   "devDependencies": {
     "chai": "latest",
     "gulp": "latest",
-    "gulp-eslint": "^2",
+    "gulp-eslint": "~2",
     "gulp-load-plugins": "latest",
     "gulp-mocha": "latest",
     "vindication.js": "~3"

@@ -6,13 +6,13 @@ Features:
 - generates [mongoose](http://mongoosejs.com) schema by a JS object
 - generates model
 - extends model's _save_ function with validation
+- support indexing, unique constraint and value encryption
 
-Having used this library, you will be free from the load of schema and model creation and every record you might want to create and store will be validated against the rules passed by. Use it well! :)
+By using this library, you will be free from the load of schema and model creation and every record you might want to create and store will be validated against the rules passed by. Use it well! :)
 
-In the example, the rules are following the [Parsley](http://parsleyjs.org) library.
-[Vindication.js](https://github.com/imrefazekas/vindication.js) is a great library to interpret those rules on both client and server side.
+In the example, the rules follow the syntax of [Vindication.js](https://github.com/imrefazekas/vindication.js) which is a great library to be used on both client and server side for validation.
 
-This project is extracted from a complex project boilerplate: [Division.js](https://github.com/imrefazekas/division.js), where one business model is defined and maintained allowing you to use the same objects - including model and validation and computed values and associated functions - on both client side, server side and DB interaction!
+This project is designed to support complex business models shared between client and server-side opening the code for the  sharing of model, validation and computation functions.
 
 License: [MIT](http://www.opensource.org/licenses/mit-license.php)
 
@@ -20,18 +20,24 @@ License: [MIT](http://www.opensource.org/licenses/mit-license.php)
 ##Usage
 ```javascript
 // require the lib
-var schemagen = require('../lib/mongoose-schemagen');
+var schemagen = require('mongoose-schemagen');
 // require the lib which can iterpret the validation rules. vindication.js is used in this example.
 var vindication = require('vindication.js');
 
 // have a prototype model. The business logic object will look like this.
 var prototype = {
+	password: {
+		_type: String,
+		encrypted: true
+	},
+	uid: { _type: String, unique: true },
 	firstName: "Planet",
 	lastName: "Earth",
 	fullName: function() {
 		return this.firstName() + " " + this.lastName();
 	}
 };
+
 
 // define some rules as validation constraints
 var rules = {
