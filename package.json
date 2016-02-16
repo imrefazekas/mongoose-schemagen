@@ -1,6 +1,6 @@
 {
   "name": "mongoose-schemagen",
-  "version": "0.8.0",
+  "version": "0.9.0",
   "description": "Exceptionally featureful RESTful web services middleware for Connect.",
   "keywords": [
     "mongoose",
@@ -23,7 +23,7 @@
   "license": "MIT",
   "main": "./lib/mongoose-schemagen.js",
   "dependencies": {
-    "lodash": "~3",
+    "isa.js": "^1.0.1",
     "mongoose": "~4"
   },
   "devDependencies": {
