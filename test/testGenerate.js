@@ -21,7 +21,7 @@ describe("schemagen", function () {
 		var poolSize = 5;
 		var user = process.env.MONGODB_DEVELOPMENT_USER;
 		var pass = process.env.MONGODB_DEVELOPMENT_PASSWORD;
-		var dbName = process.env.MONGODB_DEVELOPMENT_DB || 'test';
+		var dbName = process.env.MONGODB_DEVELOPMENT_DB || 'schemagen-test';
 
 		var uri = 'mongodb://' + (user ? user + ':' + pass + '@' : '' )  + host + ':' + port + '/' + dbName;
 		var opts = { server: { auto_reconnect: true, poolSize: poolSize }, db: { safe: true, fsync: true }, user: user, pass: pass };
@@ -85,6 +85,7 @@ describe("schemagen", function () {
 			var Model = obj.model;
 
 			var record = new Model( {
+				password: 'Almafa',
 				body: {
 					data: 'D',
 					content: 'C'
@@ -96,7 +97,13 @@ describe("schemagen", function () {
 			} );
 
 			record.save( function(err, res){
-				done( err );
+				if( err ) return done( err );
+				Model.findOne( {  'body.data': 'D' }, function (err, cmplx) {
+					cmplx.comparePassword( 'Almafa', function(err, res){
+						console.log('>>>>>>>>>>>>>>>', err, res);
+						done( err );
+					} );
+				} );
 			} );
 		});
 	});

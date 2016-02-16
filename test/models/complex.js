@@ -1,4 +1,9 @@
 exports.dataModel = {
+	password: {
+		_type: String,
+		unique: true,
+		encrypted: true
+	},
 	body: {
 		data: '',
 		content: ''
