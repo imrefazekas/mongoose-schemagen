@@ -1,5 +1,7 @@
 [![NPM](https://nodei.co/npm/mongoose-schemagen.png)](https://nodei.co/npm/mongoose-schemagen/)
 
+[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
+
 [mongoose-schemagen](https://github.com/imrefazekas/mongoose-schemagen) is a very small utility library allowing to generate validable [mongoose](http://mongoosejs.com) schemas from pure JS objects.
 
 Features:
@@ -66,5 +68,3 @@ record.saveWithValidation();
 ```
 
 And that's it!
-
-[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
