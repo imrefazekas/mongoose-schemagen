@@ -25,7 +25,7 @@
   "dependencies": {
     "async": "^1.5.2",
     "bcrypt": "^0.8.5",
-    "isa.js": "^1.6.0",
+    "isa.js": "^1.6.1",
     "mongoose": "~4"
   },
   "devDependencies": {
