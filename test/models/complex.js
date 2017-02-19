@@ -4,6 +4,10 @@ exports.dataModel = {
 		unique: true,
 		encrypted: true
 	},
+	geo: {
+		_type: [ Number ],
+		index: '2d'
+	},
 	body: {
 		data: '',
 		content: ''
