@@ -2,7 +2,7 @@ exports.dataModel = {
 	password: {
 		_type: String,
 		unique: true,
-		encrypted: true
+		hashed: true
 	},
 	geo: {
 		_type: [ Number ],

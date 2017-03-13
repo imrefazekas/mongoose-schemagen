@@ -8,7 +8,7 @@ Features:
 - generates [mongoose](http://mongoosejs.com) schema by a JS object
 - generates model
 - extends model's _save_ function with validation
-- support indexing, unique constraint and value encryption
+- support indexing, unique constraint and value hashing
 - instance and static Model functions
 
 By using this library, you will be free from the load of schema and model creation and every record you might want to create and store will be validated against the rules passed by. Use it well! :)
@@ -31,7 +31,7 @@ var vindication = require('vindication.js');
 var prototype = {
 	password: {
 		_type: String,
-		encrypted: true
+		hashed: true
 	},
 	uid: { _type: String, unique: true },
 	firstName: "Planet",

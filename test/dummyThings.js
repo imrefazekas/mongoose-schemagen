@@ -2,7 +2,7 @@
 
 var _ = require('isa.js');
 
-var encryptedFields = function( object, array, root ){
+var hashedFields = function( object, array, root ){
 	for ( let key of Object.keys( object ) ){
 		var ref = root + '.' + key;
 		var value = object[key];
@@ -18,7 +18,7 @@ var encryptedFields = function( object, array, root ){
 		}
 		else if( _.isObject( value ) ){
 			if( value._type ){
-				if( value.encrypted )
+				if( value.hashed )
 					array.push( ref );
 			}
 			else if(
@@ -28,7 +28,7 @@ var encryptedFields = function( object, array, root ){
 			)
 				continue;
 			else{
-				encryptedFields( object[key], array, root + (root?'.':'') + key );
+				hashedFields( object[key], array, root + (root?'.':'') + key );
 			}
 		}
 	}
@@ -65,7 +65,7 @@ var obj = {
 		alma: {
 			almafa: {
 				_type: String,
-				encrypted: true
+				hashed: true
 			}
 		}
 	}
@@ -74,7 +74,7 @@ var obj = {
 console.log( namify('password') );
 console.log( namify('password.almafa') );
 
-var fields = encryptedFields( obj, [], '' );
+var fields = hashedFields( obj, [], '' );
 fields.forEach( function(field){
 	console.log(
 		get( obj, field ),
