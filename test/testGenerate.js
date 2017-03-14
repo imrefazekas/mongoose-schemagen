@@ -118,7 +118,8 @@ describe('schemagen', function () {
 				idcard: {
 					serialID: '123123',
 					issuedAt: 123123
-				}
+				},
+				plateNumber: 300
 			} )
 
 			Model.remove({ }, function (err) {

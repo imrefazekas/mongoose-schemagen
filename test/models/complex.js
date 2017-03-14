@@ -20,5 +20,6 @@ exports.dataModel = {
 		_encrypted: true,
 		serialID: '',
 		issuedAt: 0
-	}
+	},
+	plateNumber: { _type: Number, _encrypted: true, value: 12 }
 };
