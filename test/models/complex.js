@@ -15,5 +15,10 @@ exports.dataModel = {
 	additional: {
 		some: '',
 		text: { _type: String }
+	},
+	idcard: {
+		_encrypted: true,
+		serialID: '',
+		issuedAt: 0
 	}
 };

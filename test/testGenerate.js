@@ -1,88 +1,109 @@
-var should = require("chai").should();
-var schemagen = require('../lib/mongoose-schemagen');
-var vindication = require('vindication.js');
-var path = require('path');
+let should = require('chai').should()
+let schemagen = require('../lib/mongoose-schemagen')
+let vindication = require('vindication.js')
+let path = require('path')
 
-var mongoose = require('mongoose');
+let mongoose = require('mongoose')
+mongoose.Promise = Promise
 
-describe("schemagen", function () {
+let Clerobee = require('clerobee')
+let clerobee = new Clerobee( 256 )
+
+describe('schemagen', function () {
 
 	var prototype = {
-		firstName: "Planet",
-		lastName: "Earth",
-		fullName: function() {
-			return this.firstName() + " " + this.lastName();
+		firstName: 'Planet',
+		lastName: 'Earth',
+		fullName: function () {
+			return this.firstName() + ' ' + this.lastName()
+		},
+		idcard: {
+			_encrypted: true,
+			serialID: '',
+			issuedAt: 0
 		}
-	};
+	}
 
-	before(function(done){
-		var host = process.env.MONGODB_DEVELOPMENT_HOST || 'localhost';
-		var port = process.env.MONGODB_DEVELOPMENT_PORT || 27017;
-		var poolSize = 5;
-		var user = process.env.MONGODB_DEVELOPMENT_USER;
-		var pass = process.env.MONGODB_DEVELOPMENT_PASSWORD;
-		var dbName = process.env.MONGODB_DEVELOPMENT_DB || 'schemagen-test';
+	before( function (done) {
+		var host = process.env.MONGODB_DEVELOPMENT_HOST || 'localhost'
+		var port = process.env.MONGODB_DEVELOPMENT_PORT || 27017
+		var poolSize = 5
+		var user = process.env.MONGODB_DEVELOPMENT_USER
+		var pass = process.env.MONGODB_DEVELOPMENT_PASSWORD
+		var dbName = process.env.MONGODB_DEVELOPMENT_DB || 'schemagen-test'
 
-		var uri = 'mongodb://' + (user ? user + ':' + pass + '@' : '' )  + host + ':' + port + '/' + dbName;
+		var uri = 'mongodb://' + (user ? user + ':' + pass + '@' : '' )  + host + ':' + port + '/' + dbName
 		var opts = { server: { auto_reconnect: true, poolSize: poolSize }, db: { safe: true, fsync: true }, user: user, pass: pass };
 
-		mongoose.connect( uri, opts );
+		mongoose.connect( uri, opts )
 
-		var db = global.db = mongoose.connection;
+		var db = global.db = mongoose.connection
 
 		db.on('error', function (err) {
-			done( err );
-		} );
-		db.on('open', function() {
-			done();
-		} );
-	});
+			done( err )
+		} )
+		db.on('open', function () {
+			done()
+		} )
+	})
 
-	describe("test integration", function () {
-		it('reading models', function(done){
-			var env = global.models = schemagen.readModels( {}, path.resolve( './test/models' ) );
+	describe('test integration', function () {
+		it('reading models', function (done) {
+			var env = global.models = schemagen.readModels( {}, path.resolve( './test/models' ) )
 
-			env.should.have.property('users');
-			env.should.have.property('services');
-			env.should.have.property('complex');
+			env.should.have.property('users')
+			env.should.have.property('services')
+			env.should.have.property('complex')
 
-			done();
-		});
+			done()
+		})
 
-		it('storing record', function(done){
+		it('storing record', function (done) {
 			var obj = schemagen.generate(
 				mongoose,
 				prototype,
 				{
-					firstName: { required: true, type: "number" },
-					lastName: { minlength: "1", type: "alphanum" }
+					firstName: { required: true, type: 'number' },
+					lastName: { minlength: '1', type: 'alphanum' }
 				},
 				{ collection: 'Docs' },
 				{
-					name: 'Doc', validator: vindication.validate, timeStamped: true, creationFunt: function(record){
-						return record;
+					name: 'Doc',
+					validator: vindication.validate,
+					timeStamped: true,
+					encryption: { secret: clerobee.generate() },
+					creationFunt: function (record) {
+						return record
 					}
 				}
-			);
-			var Model = obj.model;
+			)
+			var Model = obj.model
 
-			var record = new Model( prototype );
+			Model.remove({ }, function (err) {
+				if (err) return done(err)
 
-			record.save( function(err, res){
-				should.exist(err);
-				done( );
-			} );
-		});
+				var record = new Model( prototype )
 
-		it('storing complex', function(done){
+				record.save( function (err, res) {
+					should.exist(err)
+					console.log('>>>>>>>>>>>>>>>>>>>>>>>', res)
+					done( )
+				} )
+			})
+		})
+
+		it('storing complex', function (done) {
 			var obj = schemagen.generate(
 				mongoose,
 				global.models.complex.dataModel,
 				{ },
 				{ collection: 'Complex' },
-				{ name: 'Complex', timeStamped: true, creationFunt: function(record){ return record; } }
-			);
-			var Model = obj.model;
+				{
+					name: 'Complex', timeStamped: true, creationFunt: function (record) { return record },
+					encryption: { secret: clerobee.generate() }
+				}
+			)
+			var Model = obj.model
 
 			var record = new Model( {
 				password: 'Almafa',
@@ -93,23 +114,32 @@ describe("schemagen", function () {
 				additional: {
 					some: 'S',
 					text: 'T'
+				},
+				idcard: {
+					serialID: '123123',
+					issuedAt: 123123
 				}
-			} );
+			} )
 
-			record.save( function(err, res){
-				if( err ) return done( err );
-				Model.findOne( {  'body.data': 'D' }, function (err, cmplx) {
-					cmplx.comparePassword( 'Almafa', function(err, res){
-						console.log('>>>>>>>>>>>>>>>', err, res);
-						done( err );
-					} );
-				} );
-			} );
-		});
-	});
+			Model.remove({ }, function (err) {
+				if (err) return done(err)
 
-	after(function(done){
-		mongoose.connection.close( function(){ console.log('Mongo stopped'); done(); } );
-	});
+				record.save( function (err, res) {
+					if ( err ) return done( err )
+					Model.findOne( { 'body.data': 'D' }, function (err, cmplx) {
+						console.log('>>>>>>>>>>>>>>>>>>>>>>>', cmplx)
+						done( err )
+					} )
+				} )
+			})
+		})
+	})
 
-});
+	after( function (done) {
+		mongoose.connection.close( function () {
+			console.log('Mongo stopped')
+			done()
+		} )
+	})
+
+})
