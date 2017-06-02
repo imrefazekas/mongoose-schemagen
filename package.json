@@ -1,6 +1,6 @@
 {
   "name": "mongoose-schemagen",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Exceptionally featureful RESTful web services middleware for Connect.",
   "keywords": [
     "mongoose",
@@ -23,19 +23,20 @@
   "license": "MIT",
   "main": "./lib/mongoose-schemagen.js",
   "dependencies": {
-    "isa.js": "^1.8.5",
+    "isa.js": "^1.9.0",
     "mongoose": "~4"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
-    "clerobee": "^0.7.0",
-    "gulp": "^3.9.1",
-    "gulp-eslint": "~3",
-    "gulp-load-plugins": "^1.5.0",
-    "gulp-mocha": "^4.1.0",
+    "chai": "^4.0.1",
+    "clerobee": "^0.8.5",
     "vindication.js": "~4"
   },
   "engines": {
     "node": ">= 6.0.0"
+  },
+  "scripts": {
+    "lint": "eslint lib/",
+    "mocha": "mocha test/testGenerate.js",
+    "test": "mocha test/testGenerate.js"
   }
 }
