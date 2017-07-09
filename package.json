@@ -1,6 +1,6 @@
 {
   "name": "mongoose-schemagen",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Exceptionally featureful RESTful web services middleware for Connect.",
   "keywords": [
     "mongoose",
@@ -27,7 +27,8 @@
     "mongoose": "~4"
   },
   "devDependencies": {
-    "chai": "^4.0.1",
+    "async": "^2.5.0",
+    "chai": "^4.0.2",
     "clerobee": "^0.8.5",
     "vindication.js": "~4"
   },

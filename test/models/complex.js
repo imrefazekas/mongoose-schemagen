@@ -1,11 +1,11 @@
 exports.dataModel = {
 	password: {
 		_type: String,
-		unique: true
+		_unique: true
 	},
 	geo: {
 		_type: [ Number ],
-		index: '2d'
+		_index: '2d'
 	},
 	body: {
 		data: '',
@@ -21,4 +21,4 @@ exports.dataModel = {
 		issuedAt: 0
 	},
 	plateNumber: { _type: Number, _encrypted: true, value: 12 }
-};
+}
