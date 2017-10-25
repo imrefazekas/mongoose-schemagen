@@ -23,48 +23,48 @@ License: [MIT](http://www.opensource.org/licenses/mit-license.php)
 ##Usage
 ```javascript
 // require the lib
-var schemagen = require('mongoose-schemagen');
+let schemagen = require('mongoose-schemagen')
 // require the lib which can iterpret the validation rules. vindication.js is used in this example.
-var vindication = require('vindication.js');
+let vindication = require('vindication.js')
 
 // have a prototype model. The business logic object will look like this.
-var prototype = {
+let prototype = {
 	password: {
 		_type: String,
 		_encrypted: true
 	},
 	uid: { _type: String, _unique: true },
-	firstName: "Planet",
-	lastName: "Earth",
+	firstName: 'Planet',
+	lastName: 'Earth',
 	fullName: function() {
-		return this.firstName() + " " + this.lastName();
+		return this.firstName() + ' ' + this.lastName()
 	}
-};
+}
 
 
 // define some rules as validation constraints
-var rules = {
-	firstName: { required: true, type: "number" },
-	lastName: { minlength: "1", type: "alphanum" }
+let rules = {
+	firstName: { required: true, type: 'number' },
+	lastName: { minlength: '1', type: 'alphanum' }
 }
 
 // create schema and model. The returning object possesses the mongoose model and the schema as well.
-var gen = schemagen.generate(
+let gen = schemagen.generate(
 	prototype,
 	{
-		firstName: { required: true, type: "number" },
-		lastName: { minlength: "1", type: "alphanum" }
+		firstName: { required: true, type: 'number' },
+		lastName: { minlength: '1', type: 'alphanum' }
 	},
 	{ collection: 'Docs' },
 	{ name: 'Doc', validator: vindication.validate }
-);
-var model = gen.model;
+)
+let model = gen.model
 
 // create a mongoose record by some JS object
-var record = new model( prototype );
+let record = new model( prototype )
 
 // save the record with validation. In case of validation issues, an Error will be thrown.
-record.saveWithValidation();
+record.save()
 ```
 
 And that's it!

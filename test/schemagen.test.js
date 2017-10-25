@@ -58,8 +58,8 @@ describe('schemagen', function () {
 			done()
 		})
 
-		it('storing record', function (done) {
-			var obj = schemagen.generate(
+		it('storing record', async function () {
+			var obj = await schemagen.generate(
 				mongoose,
 				prototype,
 				{

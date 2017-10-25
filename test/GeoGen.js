@@ -34,7 +34,7 @@ function mongooseFactory () {
 	}
 
 	var Location = schemagen.generate( mongoose, LocationObject, null, {}, { name: 'Location', schemaCreated: function (schema) {
-		schema.index( {loc: '2dsphere'} )
+		schema.index( { loc: '2dsphere' } )
 	} } ).model
 
 	var data = [
