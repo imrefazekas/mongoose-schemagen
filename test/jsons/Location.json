@@ -1,0 +1,280 @@
+{
+	"_id": "5a01a9408bf6d3a6494712cd",
+	"lastModified": 1510058304880,
+	"description": "Location of clients",
+	"datasubject": false,
+	"uid": "21b533f97dbbaa578d8f44ce66f509eb",
+	"sid": "",
+	"timestamp": 1510058304906,
+	"name": "Location",
+	"fixed": false,
+	"active": true,
+	"access": {
+		"Marketer": {
+			"pseudo": false,
+			"minimised": false,
+			"write": false
+		},
+		"Analyser": {
+			"pseudo": false,
+			"minimised": false,
+			"write": false
+		},
+		"Tester": {
+			"pseudo": false,
+			"minimised": false,
+			"write": true
+		},
+		"Deployer": {
+			"pseudo": false,
+			"minimised": false,
+			"write": false
+		},
+		"Developer": {
+			"pseudo": false,
+			"minimised": false,
+			"write": true
+		},
+		"Manager": {
+			"pseudo": false,
+			"minimised": false,
+			"write": false
+		},
+		"Recipient": {
+			"pseudo": false,
+			"minimised": false,
+			"write": false
+		},
+		"ThirdParty": {
+			"pseudo": false,
+			"minimised": false,
+			"write": false
+		},
+		"Processor": {
+			"pseudo": false,
+			"minimised": false,
+			"write": true
+		},
+		"Controller": {
+			"pseudo": false,
+			"minimised": false,
+			"write": true
+		},
+		"DPO": {
+			"pseudo": false,
+			"minimised": false,
+			"write": true
+		},
+		"Confidant": {
+			"pseudo": false,
+			"minimised": false,
+			"write": false
+		}
+	},
+	"attributes": [{
+		"uid": "",
+		"dataType": "Text",
+		"sensitive": true,
+		"personal": true,
+		"sealed": true,
+		"keyUnique": true,
+		"indexed": true,
+		"generated": true,
+		"fixed": true,
+		"description": "Internal UID",
+		"required": false,
+		"pseudoFn": "return document[attributeName]",
+		"sid": "",
+		"timestamp": -1,
+		"name": "uid",
+		"active": true,
+		"_id": "5a01a9408bf6d3a6494712d0",
+		"access": {
+			"Marketer": {
+				"write": false
+			},
+			"Analyser": {
+				"write": false
+			},
+			"Tester": {
+				"write": false
+			},
+			"Deployer": {
+				"write": false
+			},
+			"Developer": {
+				"write": false
+			},
+			"Manager": {
+				"write": false
+			},
+			"Recipient": {
+				"write": false
+			},
+			"ThirdParty": {
+				"write": false
+			},
+			"Processor": {
+				"write": false
+			},
+			"Controller": {
+				"pseudo": false,
+				"minimised": false,
+				"write": false
+			},
+			"DPO": {
+				"pseudo": false,
+				"minimised": false,
+				"write": false
+			},
+			"Confidant": {
+				"write": false
+			}
+		},
+		"validation": {
+			"min": -1,
+			"max": -1,
+			"minlength": -1,
+			"maxlength": -1,
+			"pattern": "",
+			"element": [""]
+		}
+	}, {
+		"uid": "",
+		"dataType": "Timestamp",
+		"sensitive": false,
+		"personal": false,
+		"sealed": false,
+		"keyUnique": false,
+		"indexed": false,
+		"generated": false,
+		"fixed": true,
+		"description": "Timestamp of creation of the record",
+		"required": false,
+		"pseudoFn": "return document[attributeName]",
+		"sid": "",
+		"timestamp": -1,
+		"name": "timestamp",
+		"active": true,
+		"_id": "5a01a9408bf6d3a6494712cf",
+		"access": {
+			"Marketer": {
+				"write": false
+			},
+			"Analyser": {
+				"write": false
+			},
+			"Tester": {
+				"write": false
+			},
+			"Deployer": {
+				"write": false
+			},
+			"Developer": {
+				"write": false
+			},
+			"Manager": {
+				"write": false
+			},
+			"Recipient": {
+				"write": false
+			},
+			"ThirdParty": {
+				"write": false
+			},
+			"Processor": {
+				"write": false
+			},
+			"Controller": {
+				"pseudo": false,
+				"minimised": false,
+				"write": false
+			},
+			"DPO": {
+				"pseudo": false,
+				"minimised": false,
+				"write": false
+			},
+			"Confidant": {
+				"write": false
+			}
+		},
+		"validation": {
+			"min": -1,
+			"max": -1,
+			"minlength": -1,
+			"maxlength": -1,
+			"pattern": "",
+			"element": [""]
+		}
+	}, {
+		"dataType": "Geo",
+		"sensitive": false,
+		"personal": true,
+		"sealed": false,
+		"keyUnique": false,
+		"indexed": true,
+		"generated": false,
+		"fixed": false,
+		"description": "Location data",
+		"required": false,
+		"pseudoFn": "return document[attributeName]",
+		"uid": "af3f05d9-1cee-ecc8-90e0-14e4c39fbb50",
+		"sid": "",
+		"timestamp": -1,
+		"name": "loc",
+		"active": true,
+		"_id": "5a01a9408bf6d3a6494712ce",
+		"access": {
+			"Marketer": {
+				"write": false
+			},
+			"Analyser": {
+				"write": false
+			},
+			"Tester": {
+				"write": false
+			},
+			"Deployer": {
+				"write": false
+			},
+			"Developer": {
+				"write": false
+			},
+			"Manager": {
+				"write": false
+			},
+			"Recipient": {
+				"write": false
+			},
+			"ThirdParty": {
+				"write": false
+			},
+			"Processor": {
+				"write": false
+			},
+			"Controller": {
+				"pseudo": false,
+				"minimised": false,
+				"write": false
+			},
+			"DPO": {
+				"pseudo": false,
+				"minimised": false,
+				"write": false
+			},
+			"Confidant": {
+				"write": false
+			}
+		},
+		"validation": {
+			"min": -1,
+			"max": -1,
+			"minlength": -1,
+			"maxlength": -1,
+			"pattern": "",
+			"element": [""]
+		}
+	}],
+	"__v": 0
+}

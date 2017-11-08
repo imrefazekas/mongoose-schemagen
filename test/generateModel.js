@@ -4,7 +4,7 @@ let subject = {
 	attributes: [ {
 		name: 'uid',
 		description: '',
-		type: 'Text',
+		dataType: 'Text',
 		sensitive: true,
 		personal: true,
 		sealed: true,
@@ -42,7 +42,7 @@ let subject = {
 	{
 		name: 'exp_uid',
 		description: '',
-		type: 'Text',
+		dataType: 'Text',
 		sensitive: false,
 		personal: true,
 		sealed: false,
@@ -61,7 +61,7 @@ let subject = {
 	{
 		name: 'timestamp',
 		description: '',
-		type: 'Timestamp',
+		dataType: 'Timestamp',
 		sensitive: false,
 		personal: false,
 		sealed: false,
@@ -80,7 +80,7 @@ let subject = {
 	{
 		name: 'consent',
 		description: '',
-		type: 'Object',
+		dataType: 'Object',
 		sensitive: true,
 		personal: true,
 		sealed: false,
@@ -98,7 +98,7 @@ let subject = {
 	{
 		name: 'active',
 		description: '',
-		type: 'Boolean',
+		dataType: 'Boolean',
 		sensitive: false,
 		personal: false,
 		sealed: false,
@@ -116,7 +116,7 @@ let subject = {
 	{
 		name: 'authID',
 		description: '',
-		type: 'Text',
+		dataType: 'Text',
 		sensitive: false,
 		personal: false,
 		sealed: false,
@@ -135,7 +135,7 @@ let subject = {
 	{
 		name: 'authKey',
 		description: '',
-		type: 'Text',
+		dataType: 'Text',
 		sensitive: false,
 		personal: false,
 		sealed: false,
@@ -154,7 +154,7 @@ let subject = {
 	{
 		name: 'email',
 		description: '',
-		type: 'Text',
+		dataType: 'Text',
 		sensitive: false,
 		personal: false,
 		sealed: false,
@@ -172,7 +172,7 @@ let subject = {
 	{
 		name: 'phone',
 		description: '',
-		type: 'Text',
+		dataType: 'Text',
 		sensitive: false,
 		personal: false,
 		sealed: false,
@@ -190,7 +190,7 @@ let subject = {
 	{
 		name: 'loc',
 		description: '',
-		type: 'Geo',
+		dataType: 'Geo',
 		sensitive: false,
 		personal: false,
 		sealed: false,
